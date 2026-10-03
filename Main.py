@@ -29,7 +29,7 @@ ticket["weeks"] = ticket["created_at"].dt.to_period("W").astype(str)
 
 def run_analysis():
 
-    ticket["corrected_categories"] = ticket["category"]
+    #ticket["corrected_categories"] = ticket["category"]
 
     categories = [
     category for category in ticket["category"].unique()
@@ -46,15 +46,16 @@ def run_analysis():
         )
 
     # classified_tickets = set(labels["ticket_id"])
-    # other_tickets = ticket[(ticket["category"] == "Other") & (~ticket["ticket_id"].isin(classified_tickets))].head(250).index
+    max = 250  #change it however you want
+    other_tickets = ticket[(ticket["category"] == "Other") & (~ticket["ticket_id"].isin(classified_tickets))].head(max).index
 
-    
+    # max_tickets =     
     # other_tickets = ticket[
     # ticket["category"] == "Other"
     # ].head(44).index
 
 
-    other_tickets = []
+    #other_tickets = []
 
     for i in other_tickets:
 
